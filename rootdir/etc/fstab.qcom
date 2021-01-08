@@ -31,3 +31,6 @@
 # The update_engine code looks for this entry in order to determine the boot device address
 # and fails if it does not find it.
 /dev/block/bootdevice/by-name/system                    /system_root       emmc    defaults                                             defaults
+
+# ZRAM
+/dev/block/zram0                           none        swap   defaults    zramsize=2147483648
