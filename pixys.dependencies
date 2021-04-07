@@ -35,22 +35,4 @@
       "target_path":"packages/apps/FMRadio",
       "branch":"lineage-18.0"
    },
-   {
-      "remote": "lineage",
-      "repository": "android_hardware_qcom_audio",
-      "target_path": "hardware/qcom-caf/sdm660/audio",
-      "branch": "lineage-18.1-caf-msm8998"
-   },
-   {
-      "remote": "lineage",
-      "repository": "android_hardware_qcom_media",
-      "target_path": "hardware/qcom-caf/sdm660/media",
-      "branch": "lineage-18.1-caf-msm8998"
-   },
-   {
-      "remote": "lineage",
-      "repository": "android_hardware_qcom_display",
-      "target_path": "hardware/qcom-caf/sdm660/display",
-      "branch": "lineage-18.1-caf-msm8998"
-   }
 ]
