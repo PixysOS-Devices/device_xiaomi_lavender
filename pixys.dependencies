@@ -18,6 +18,12 @@
       "branch":"Hmp"
    },
    {
+      "remote":"github",
+      "repository":"SDM660-Project/android_hardware_qcom_display",
+      "target_path":"hardware/qcom-caf/sdm660/display",
+      "branch":"4.4"
+   },
+   {
       "remote":"gitlab",
       "repository":"AlissonGrizotti/vendor_xiaomi_lavender",
       "target_path":"vendor/xiaomi/lavender",
