@@ -24,6 +24,18 @@
       "branch":"4.4"
    },
    {
+      "remote": "lineage",
+      "repository": "android_hardware_qcom_audio",
+      "target_path": "hardware/qcom-caf/sdm660/audio",
+      "branch": "lineage-18.1-caf-msm8998"
+   },
+   {
+      "remote": "lineage",
+      "repository": "android_hardware_qcom_media",
+      "target_path": "hardware/qcom-caf/sdm660/media",
+      "branch": "lineage-18.1-caf-msm8998"
+   },
+   {
       "remote":"gitlab",
       "repository":"AlissonGrizotti/vendor_xiaomi_lavender",
       "target_path":"vendor/xiaomi/lavender",
