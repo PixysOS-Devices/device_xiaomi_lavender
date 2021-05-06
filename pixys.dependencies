@@ -15,7 +15,7 @@
       "remote":"github",
       "repository":"NotZeetaa/nexus_kernel_lavender",
       "target_path":"kernel/xiaomi/sdm660",
-      "branch":"Hmp"
+      "branch":"hmp"
    },
    {
       "remote":"github",
