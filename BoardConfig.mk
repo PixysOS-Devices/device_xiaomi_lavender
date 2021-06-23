@@ -52,7 +52,7 @@ BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 TARGET_SCREEN_DENSITY := 420
 
 # Kernel
-TARGET_KERNEL_CONFIG := lavender-perf_defconfig
+TARGET_KERNEL_CONFIG := lavender_defconfig
 BOARD_KERNEL_SEPARATED_DTBO := true
 
 # Manifest
