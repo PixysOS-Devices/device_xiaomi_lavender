@@ -177,6 +177,7 @@ ro.soc.manufacturer=Qualcomm
 ro.soc.model=SDM660
 
 # SurfaceFlinger
+debug.sf.enable_gl_backpressure=1
 ro.surface_flinger.has_wide_color_display=true
 
 # Time
