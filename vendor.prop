@@ -128,6 +128,10 @@ ro.hardware.vulkan=sdm660
 drm.service.enabled=true
 media.mediadrmservice.enable=true
 
+# Enable Pre-Rendering
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.vendor.perf.scroll_opt=true
+
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
@@ -186,3 +190,4 @@ persist.vendor.delta_time.enable=true
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
+
