@@ -9,6 +9,10 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-arrow
 
+PRODUCT_PACKAGES += \
+    NotchBarKiller \
+    NoCutoutOverlay
+
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Soong namespaces
@@ -89,7 +93,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/audio/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
     $(LOCAL_PATH)/audio/graphite_ipc_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/graphite_ipc_platform_info.xml \
-    $(LOCAL_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml
+    $(LOCAL_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration_7_0.xml \
@@ -133,7 +139,8 @@ PRODUCT_PACKAGES += \
     GCamGOPrebuilt
 else
 PRODUCT_PACKAGES += \
-    Snap
+    Snap \
+    libstdc++.vendor
 endif
 
 PRODUCT_PACKAGES += \
@@ -150,13 +157,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
 
 # ConsumerIR
-ifeq ($(BOARD_HAVE_IR),true)
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-service.xiaomi_sdm660
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
-endif
 
 # Display
 PRODUCT_PACKAGES += \
@@ -197,13 +202,11 @@ PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0-impl
 
 # FM
-ifeq ($(BOARD_HAVE_QCOM_FM),true)
 PRODUCT_PACKAGES += \
     FM2 \
     libqcomfm_jni \
     qcom.fmradio \
     qcom.fmradio.xml
-endif
 
 # fwk-detect
 PRODUCT_PACKAGES += \
@@ -342,6 +345,9 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.xiaomi-libperfmgr \
     android.hardware.power.stats@1.0-service.mock
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 # Protobuf
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat \
@@ -401,6 +407,30 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
+# System
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.binary_xml=false
+
+ # Shims
+PRODUCT_PACKAGES += \
+    libcamera_sdm660_shim
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.device.rc
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.vibrator.service
+
+PRODUCT_COPY_FILES += \
+    vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
+
 # Wifi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
@@ -409,7 +439,8 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     WifiOverlay \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    LavenderWifiOverlay
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
@@ -417,4 +448,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)
