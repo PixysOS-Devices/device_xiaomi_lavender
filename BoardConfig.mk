@@ -60,7 +60,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_SOURCE := kernel/xiaomi/lavender
-TARGET_KERNEL_CONFIG := lavender-perf_defconfig
+TARGET_KERNEL_CONFIG := lavender_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 
 # QCOM hardware
