@@ -1,0 +1,25 @@
+[
+  {
+    "repository": "OmarAlCoptan/kernel_xiaomi_lavender",
+    "target_path": "kernel/xiaomi/lavender",
+    "branch": "arrow-12.1",
+    "remote": "github"
+  },
+  {
+    "repository": "hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "branch": "twelve"
+  },
+  {
+    "repository": "OmarAlCoptan/vendor_xiaomi_lavender-decommonized",
+    "target_path": "vendor/xiaomi/lavender",
+    "branch": "12.1",
+    "remote": "github"
+  },
+  {
+    "repository": "PixysOS/packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+    "branch": "twelve",
+    "remote": "github"
+  }
+]
